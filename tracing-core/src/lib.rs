@@ -250,7 +250,7 @@ pub(crate) mod spin;
 pub type Once = self::spin::Once<()>;
 
 #[cfg(feature = "std")]
-pub use stdlib::sync::Once;
+pub use std::sync::Once;
 
 pub mod callsite;
 pub mod dispatcher;

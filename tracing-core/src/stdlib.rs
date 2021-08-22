@@ -10,6 +10,12 @@
 #[cfg(feature = "std")]
 pub(crate) use std::*;
 
+#[cfg(all(feature = "std",target_env = "sgx"))]
+pub(crate) mod sync {
+    pub(crate) use std::sync::*;
+    pub(crate) use std::sync::SgxMutex as Mutex;
+}
+
 #[cfg(not(feature = "std"))]
 pub(crate) use self::no_std::*;
 
